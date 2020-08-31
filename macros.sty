@@ -1,0 +1,31 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{MyMacros}[today]
+
+
+\RequirePackage{amsfonts}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{commath}
+
+
+%% Question Enumeration
+\makeatletter
+\newcommand{\skiptoitem}[1]{%
+  \setcounter{\@enumctr}{ \numexpr #1 -1 \relax}%
+}
+\makeatother
+
+%% Access set date
+\makeatletter
+\newcommand{\insertdate}{\@date}
+\makeatother
+
+%% Course Info
+\makeatletter  
+\newcommand{\prof}{\@professor}
+\makeatother
+
+\makeatletter  
+\newcommand{\course}{\@coursename}
+\makeatother
