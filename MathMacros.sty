@@ -1,0 +1,22 @@
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{commath}
+
+
+\newcommand{\True}{\ensuremath{\mathbf{T}}}
+\newcommand{\False}{\ensuremath{\mathbf{F}}}
+
+\renewcommand{\And}{\ensuremath{\wedge}}
+\newcommand{\Or}{\ensuremath{\vee}}
+\newcommand{\Not}{\ensuremath{\lnot}}
+
+\newenvironment{truthtable}[1]{
+    \begin{equation*}
+    \begin{array}{#1}
+    \hline
+}{
+    \\\hline
+    \end{array}
+    \end{equation*}
+}
+

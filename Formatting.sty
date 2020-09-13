@@ -1,0 +1,128 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Formating}
+
+\RequirePackage[letterpaper,margin=0.75in]{geometry}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage{titling}
+
+\RequirePackage{fancyhdr}
+
+\RequirePackage{amsfonts}
+\RequirePackage{amsthm}
+
+\RequirePackage{enumitem}
+\RequirePackage{subfiles}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   General Formatting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+\fancyhf{}
+
+\makeatletter
+\fancyhead[CH]{\@author}
+\fancyhead[LH]{\@course}
+\fancyhead[RH]{\@date}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Homework Environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter 
+\newcommand{\hwtitle}{
+    \raggedright
+    \begin{center}
+        {
+            \Huge 
+            \bfseries 
+            \@title 
+        }\\[4ex]
+    \end{center}
+} 
+\makeatother
+
+\newenvironment{homework}[1]{
+    \document
+    \title{Homework #1}
+    \hwtitle
+}{
+    \newpage
+    \enddocument
+}
+
+\newenvironment{question}[1]{
+    \bfseries
+    \noindent {\large Problem #1:} 
+    \newcommand{\subpart}{\item}
+    \setlist[enumerate]{left=\parindent,label=(\alph*)}
+}{
+    %Should insert vspace
+}
+
+
+\newenvironment{solution}{
+    \setlist[enumerate]{left=\parindent,label=(\alph*)}
+    \vskip 6pt
+    \noindent \textit{Solution.}
+}{
+    \vskip 6pt
+}
+
+\newenvironment{multipartsolution}{
+  \setlist[enumerate]{left=\parindent,label={\it (\alph*)}}
+  \begin{solution}
+    \newcommand{\subpart}{\item \mbox{} }
+
+}{
+    \end{solution}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Course Info
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter       
+\newcommand*{\professor}[1]{\gdef\@professor{#1 \noindent}}
+\newcommand*{\@professor}{
+    \texttt{\string\professor} currently not set. Please fix this.
+}
+
+\newcommand*{\course}[1]{\gdef\@course{#1 \noindent}}
+\newcommand*{\@course}{
+    \texttt{\string\course} currently not set. Please fix this.
+}
+
+\newcommand*{\semester}[1]{\date{#1}}
+
+\include{CourseInfo}
+
+\newcommand{\insertdate}{\@date}
+\newcommand{\prof}{\@professor}
+\newcommand{\coursename}{\@course}
+
+\title{\@course}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Notes Environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{lecture}{
+    \document
+    \makeatletter
+    \section*{\insertdate}
+    \makeatother
+}{
+    \enddocument
+}
+
+\newenvironment{topic}[1]{
+    \document
+    \section*{#1}
+}{
+    \enddocument
+}

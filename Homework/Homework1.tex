@@ -1,40 +1,62 @@
 \documentclass[../main.tex]{subfiles}
-
-\title{Homework 1}
 \date{August 30, 2020}
 
-\begin{document}
-\maketitle
+\begin{homework}{1} % Enter homework number
 
-\begin{enumerate}
+\begin{question}{4} % Enter question number
+        Can you do a proof?
+\end{question}
 
-    % Question 1
-    \item Sample Question
-        \begin{proof} 
-            Left as exercise to the reader. \\
-        \end{proof} 
-    
-    % Question 2
-    \item This Question has sub-parts
-        \begin{enumerate}
-            \item Don't you just multiple love sub-parts?
-            \item 
-            \item 
-        \end{enumerate}
-    
-    % Question 5
-    \skiptoitem{5}
-    \item This question is out of order. 
-    
-    % Question 9.5
-    \item [9.5.] This question has a custom number
-    
-    % Question 3
-    \skiptoitem{3}
-    \item I do my homework out of order
+\begin{proof} % Use this for proofs
+    Proof by construction.
+\end{proof}
 
 
-\end{enumerate}
+\begin{question}{5}
+    This Question has sub-parts
+    \begin{enumerate}
+        \item Don't you just multiple love sub-parts? \\ this one has multiple lines
+        \item item2
+        \item item3
+    \end{enumerate}
+\end{question}
+
+\begin{solution}
+    \begin{enumerate}
+        \item Does this line up? \\ what about now?
+        \item $$\Delta u$$
+        \item item3
+            \begin{equation*}
+                f = 1
+            \end{equation*}
+    \end{enumerate}
+\end{solution}
+
+\begin{question}{6}
+    Calculate $\vec{x}$.
+\end{question}
+
+\begin{solution}
+    How does this look?
+\end{solution}
+
+\begin{question}{7}
+    Can you construct a truth table?
+\end{question}
+
+\begin{solution} 
+    \begin{truthtable}{|c|c|c|}
+        P & Q & P \And Q \\
+        \hline 
+        \True & \True & \True \\
+        \True & \False & \False\\
+        \False & \True & \False\\
+        \False & \False & \False
+    \end{truthtable}
+\end{solution}
+
+\newpage
+this is a new page
 
 
-\end{document}
+\end{homework}
